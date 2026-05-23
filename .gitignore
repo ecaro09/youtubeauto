@@ -1,0 +1,10 @@
+node_modules/
+.env
+config/credentials.json
+config/tokens.json
+data/*.db
+data/backups/
+uploads/
+*.zip
+youtube-automation-agent-master/
+.vercel/
