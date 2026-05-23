@@ -16,78 +16,125 @@
 
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-        .header { text-align: center; color: white; margin-bottom: 28px; padding-top: 16px; }
-        .header h1 { font-size: 2.4em; margin-bottom: 8px; }
-        .header p  { font-size: 1.05em; opacity: 0.9; }
+        /* ── header ── */
+        .header { text-align: center; color: white; margin-bottom: 20px; padding-top: 14px; }
+        .header h1 { font-size: 2.2em; margin-bottom: 6px; }
+        .header p  { font-size: 1em; opacity: 0.9; }
 
-        /* ── status bar ── */
+        /* ── tabs ── */
+        .tab-bar {
+            display: flex; gap: 6px; margin-bottom: 20px;
+            background: rgba(255,255,255,0.15); padding: 6px; border-radius: 12px;
+            backdrop-filter: blur(6px);
+        }
+        .tab-btn {
+            flex: 1; padding: 10px 8px; border: none; border-radius: 8px;
+            background: transparent; color: rgba(255,255,255,0.85);
+            font-size: 0.9em; font-weight: 600; cursor: pointer; transition: .2s;
+        }
+        .tab-btn:hover  { background: rgba(255,255,255,0.2); color: white; }
+        .tab-btn.active { background: white; color: #667eea; }
+
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        /* ── stat bar ── */
         .status-bar {
-            background: rgba(255,255,255,0.96);
-            padding: 22px 24px;
-            border-radius: 16px;
-            margin-bottom: 24px;
+            background: rgba(255,255,255,0.96); padding: 20px 22px;
+            border-radius: 16px; margin-bottom: 20px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.12);
         }
         .status-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 14px;
-            margin-bottom: 18px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px; margin-bottom: 16px;
         }
         .stat-card {
-            text-align: center;
-            padding: 14px 10px;
+            text-align: center; padding: 13px 8px;
             background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-            border-radius: 12px;
-            color: white;
+            border-radius: 12px; color: white;
         }
-        .stat-card h3 { font-size: 1.9em; margin-bottom: 3px; }
-        .stat-card p  { opacity: 0.92; font-size: 0.85em; }
-        .btn-row { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; }
+        .stat-card h3 { font-size: 1.8em; margin-bottom: 3px; }
+        .stat-card p  { opacity: 0.9; font-size: 0.82em; }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 
-        /* ── grid ── */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px; }
+        /* ── card grid ── */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 16px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 
         .card {
-            background: rgba(255,255,255,0.96);
-            padding: 22px;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.96); padding: 20px 22px;
+            border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         }
         .card h2 { color: #667eea; margin-bottom: 14px; font-size: 1.05em; display: flex; align-items: center; gap: 7px; }
+        .card h3 { color: #764ba2; font-size: 0.9em; margin: 14px 0 8px; text-transform: uppercase; letter-spacing: .4px; }
 
         /* ── buttons ── */
         .btn {
             background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
             color: white; padding: 9px 20px; border: none; border-radius: 8px;
-            cursor: pointer; font-size: 0.93em; transition: transform .15s, opacity .15s;
+            cursor: pointer; font-size: 0.9em; transition: .15s; font-weight: 500;
         }
-        .btn:hover   { transform: translateY(-2px); opacity: .9; }
-        .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
-        .btn-sm { padding: 5px 12px; font-size: 0.8em; border-radius: 6px; }
+        .btn:hover   { opacity: .88; transform: translateY(-1px); }
+        .btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+        .btn-sm { padding: 5px 13px; font-size: 0.8em; }
         .btn-outline {
-            background: transparent;
-            border: 1.5px solid #667eea;
-            color: #667eea;
-            padding: 5px 12px; font-size: 0.8em; border-radius: 6px;
+            background: transparent; border: 1.5px solid #667eea; color: #667eea;
+            padding: 5px 13px; font-size: 0.8em; border-radius: 6px;
             cursor: pointer; transition: .15s;
         }
         .btn-outline:hover { background: #667eea; color: white; }
         .btn-green {
             background: linear-gradient(45deg, #28a745, #20c997);
-            color: white; padding: 5px 12px; font-size: 0.8em; border-radius: 6px;
+            color: white; padding: 5px 13px; font-size: 0.8em; border-radius: 6px;
             border: none; cursor: pointer;
         }
-
-        /* ── form ── */
-        .input-row { display: flex; gap: 8px; margin-bottom: 10px; }
-        .input-row input {
-            flex: 1; padding: 9px 12px; border: 1.5px solid #e0e0e0;
-            border-radius: 8px; font-size: 0.9em;
+        .btn-danger {
+            background: #dc3545; color: white; padding: 8px 18px; border: none;
+            border-radius: 8px; cursor: pointer; font-size: 0.88em;
         }
+        .btn-full { width: 100%; padding: 11px; }
+
+        /* ── form elements ── */
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; font-size: 0.82em; font-weight: 600; color: #555; margin-bottom: 5px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 9px 12px; border: 1.5px solid #e0e0e0;
+            border-radius: 8px; font-size: 0.88em; font-family: inherit;
+            transition: border-color .15s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; border-color: #667eea;
+        }
+        .form-group textarea { resize: vertical; min-height: 70px; }
+        .input-row { display: flex; gap: 8px; }
+        .input-row input { flex: 1; padding: 9px 12px; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 0.9em; }
         .input-row input:focus { outline: none; border-color: #667eea; }
 
-        /* ── pills / badges ── */
+        .toggle-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 0; border-bottom: 1px solid #f0f0f0;
+        }
+        .toggle-row:last-child { border-bottom: none; }
+        .toggle-label { font-size: 0.9em; }
+        .toggle-label small { display: block; color: #888; font-size: 0.82em; margin-top: 2px; }
+
+        .toggle {
+            position: relative; width: 42px; height: 22px; flex-shrink: 0;
+        }
+        .toggle input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute; inset: 0; background: #ccc;
+            border-radius: 22px; cursor: pointer; transition: .2s;
+        }
+        .slider:before {
+            content: ''; position: absolute;
+            width: 16px; height: 16px; left: 3px; bottom: 3px;
+            background: white; border-radius: 50%; transition: .2s;
+        }
+        .toggle input:checked + .slider { background: #667eea; }
+        .toggle input:checked + .slider:before { transform: translateX(20px); }
+
+        /* ── misc ── */
         .pill { padding: 2px 9px; border-radius: 12px; font-size: 0.75em; font-weight: 600; white-space: nowrap; }
         .pill-draft     { background: #e9ecef; color: #495057; }
         .pill-scheduled { background: #cce5ff; color: #004085; }
@@ -97,27 +144,33 @@
         .badge-ok   { background: #d4edda; color: #155724; }
         .badge-warn { background: #fff3cd; color: #856404; }
         .badge-mode { background: #e8eaf6; color: #3949ab; }
+        .badge-err  { background: #f8d7da; color: #721c24; }
 
-        /* ── list items ── */
         .list-item {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 9px 12px; margin: 6px 0;
+            padding: 9px 12px; margin: 5px 0;
             background: #f8f9ff; border-radius: 8px;
-            border-left: 4px solid #667eea; font-size: 0.88em;
+            border-left: 4px solid #667eea; font-size: 0.87em;
         }
         .list-item-title { flex: 1; margin-right: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .list-item-actions { display: flex; gap: 5px; flex-shrink: 0; }
 
-        .sched-item {
-            padding: 9px 12px; margin: 6px 0;
-            background: #f8f9ff; border-radius: 8px;
-            border-left: 4px solid #764ba2; font-size: 0.88em;
+        .sched-item { padding: 9px 12px; margin: 5px 0; background: #f8f9ff; border-radius: 8px; border-left: 4px solid #764ba2; font-size: 0.87em; }
+        .agent-row  { padding: 7px 10px; margin: 4px 0; background: #f8f9ff; border-radius: 8px; font-size: 0.87em; }
+        .log-line   { font-family: monospace; font-size: 0.8em; padding: 4px 7px; margin: 2px 0; background: #f5f5f5; border-radius: 4px; }
+
+        .api-status-card {
+            border: 1.5px solid #e0e0e0; border-radius: 10px; padding: 14px;
+            margin-bottom: 12px;
         }
+        .api-status-card.ok   { border-color: #28a745; background: #f0fff4; }
+        .api-status-card.warn { border-color: #ffc107; background: #fffdf0; }
+        .api-status-card h4 { font-size: 0.9em; margin-bottom: 6px; }
+        .api-status-card p  { font-size: 0.82em; color: #555; line-height: 1.5; }
 
-        .log-line { font-family: monospace; font-size: 0.82em; padding: 4px 7px; margin: 2px 0; background: #f5f5f5; border-radius: 4px; }
+        .divider { border: none; border-top: 1px solid #eee; margin: 14px 0; }
+        .info-box { background: #e8eaf6; border-radius: 8px; padding: 12px 14px; font-size: 0.82em; color: #3949ab; line-height: 1.6; margin-bottom: 12px; }
         .c-green { color: #28a745; } .c-blue { color: #0f7dba; } .c-orange { color: #e6a817; } .c-red { color: #dc3545; }
-
-        .agent-row { padding: 7px 10px; margin: 4px 0; background: #f8f9ff; border-radius: 8px; font-size: 0.88em; }
 
         /* ── modal ── */
         .modal-overlay {
@@ -128,51 +181,41 @@
         }
         .modal-overlay.open { display: flex; }
         .modal {
-            background: white; border-radius: 16px; padding: 28px;
+            background: white; border-radius: 16px; padding: 26px;
             width: 100%; max-width: 680px; margin: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative;
         }
-        .modal h2 { color: #667eea; margin-bottom: 18px; font-size: 1.2em; }
-        .modal-close {
-            position: absolute; top: 14px; right: 16px;
-            background: none; border: none; font-size: 1.4em; cursor: pointer; color: #888;
-        }
+        .modal h2 { color: #667eea; margin-bottom: 16px; font-size: 1.15em; }
+        .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.4em; cursor: pointer; color: #888; }
         .modal-close:hover { color: #333; }
-
-        .strategy-section { margin-bottom: 16px; }
-        .strategy-section h3 { font-size: 0.88em; font-weight: 700; color: #764ba2; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .5px; }
-        .strategy-section p { font-size: 0.9em; line-height: 1.6; color: #444; }
-        .strategy-section ul { padding-left: 18px; font-size: 0.9em; line-height: 1.8; color: #444; }
+        .strategy-section { margin-bottom: 14px; }
+        .strategy-section h3 { font-size: 0.85em; font-weight: 700; color: #764ba2; margin-bottom: 5px; text-transform: uppercase; letter-spacing: .4px; }
+        .strategy-section p  { font-size: 0.88em; line-height: 1.6; color: #444; }
+        .strategy-section ul { padding-left: 18px; font-size: 0.88em; line-height: 1.8; color: #444; }
         .tag-cloud { display: flex; flex-wrap: wrap; gap: 5px; }
-        .tag { background: #e8eaf6; color: #3949ab; padding: 3px 9px; border-radius: 12px; font-size: 0.78em; }
-        .hashtag { background: #e3f2fd; color: #1565c0; padding: 3px 9px; border-radius: 12px; font-size: 0.78em; }
-        .score-bar { height: 8px; background: #e0e0e0; border-radius: 4px; margin-top: 5px; }
-        .score-fill { height: 100%; border-radius: 4px; background: linear-gradient(to right, #667eea, #764ba2); }
-        .divider { border: none; border-top: 1px solid #eee; margin: 14px 0; }
+        .tag     { background: #e8eaf6; color: #3949ab; padding: 3px 9px; border-radius: 12px; font-size: 0.77em; }
+        .hashtag { background: #e3f2fd; color: #1565c0; padding: 3px 9px; border-radius: 12px; font-size: 0.77em; }
         .script-box {
             background: #f8f9ff; border: 1px solid #e0e0e0; border-radius: 8px;
-            padding: 12px; font-family: monospace; font-size: 0.82em;
-            line-height: 1.7; white-space: pre-wrap; max-height: 220px; overflow-y: auto;
-            color: #333;
+            padding: 12px; font-family: monospace; font-size: 0.8em; line-height: 1.7;
+            white-space: pre-wrap; max-height: 200px; overflow-y: auto; color: #333;
         }
-        .copy-btn { float: right; margin-top: -4px; }
 
-        /* ── refresh FAB ── */
+        /* ── fab ── */
         .fab {
             position: fixed; bottom: 22px; right: 22px;
-            width: 52px; height: 52px; border-radius: 50%;
+            width: 50px; height: 50px; border-radius: 50%;
             background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white; border: none; font-size: 1.35em; cursor: pointer;
+            color: white; border: none; font-size: 1.3em; cursor: pointer;
             box-shadow: 0 4px 16px rgba(0,0,0,0.25); transition: transform .25s;
         }
-        .fab:hover { transform: scale(1.1) rotate(20deg); }
+        .fab:hover { transform: scale(1.1) rotate(18deg); }
 
         /* ── toast ── */
         .toast {
-            position: fixed; top: 18px; right: 18px; padding: 12px 18px;
-            border-radius: 10px; color: white; font-size: 0.88em; font-weight: 600;
-            z-index: 200; max-width: 320px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            position: fixed; top: 16px; right: 16px; padding: 11px 18px;
+            border-radius: 10px; color: white; font-size: 0.86em; font-weight: 600;
+            z-index: 300; max-width: 300px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             transition: opacity .35s;
         }
         .toast-success { background: #28a745; }
@@ -190,75 +233,258 @@
         <p>YouTube Automation Dashboard — AI-powered content pipeline</p>
     </div>
 
-    <!-- stats -->
-    <div class="status-bar">
-        <div class="status-grid">
-            <div class="stat-card"><h3 id="sys-status">⏳</h3><p>System Status</p></div>
-            <div class="stat-card"><h3 id="stat-generated">—</h3><p>Content Generated</p></div>
-            <div class="stat-card"><h3 id="stat-published">—</h3><p>Videos Published</p></div>
-            <div class="stat-card"><h3 id="stat-next">—</h3><p>Next Scheduled</p></div>
+    <!-- tab bar -->
+    <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab('dashboard')">📊 Dashboard</button>
+        <button class="tab-btn" onclick="switchTab('generate')">✨ Generate</button>
+        <button class="tab-btn" onclick="switchTab('content')">📋 Content</button>
+        <button class="tab-btn" onclick="switchTab('settings')">⚙️ Settings</button>
+    </div>
+
+    <!-- ═══════════════════════ DASHBOARD TAB ═══════════════════════ -->
+    <div id="tab-dashboard" class="tab-panel active">
+        <div class="status-bar">
+            <div class="status-grid">
+                <div class="stat-card"><h3 id="sys-status">⏳</h3><p>System</p></div>
+                <div class="stat-card"><h3 id="stat-generated">—</h3><p>Generated</p></div>
+                <div class="stat-card"><h3 id="stat-published">—</h3><p>Published</p></div>
+                <div class="stat-card"><h3 id="stat-next">—</h3><p>Next Scheduled</p></div>
+            </div>
+            <div class="btn-row">
+                <button class="btn" onclick="switchTab('generate')">🎬 Generate Content</button>
+                <button class="btn" onclick="switchTab('content')">📋 All Content</button>
+                <button class="btn" onclick="switchTab('settings')">⚙️ Settings</button>
+            </div>
         </div>
-        <div class="btn-row">
-            <button class="btn" onclick="scrollToGenerate()">🎬 Generate Content</button>
-            <button class="btn" onclick="openTab('/analytics')">📊 Analytics</button>
-            <button class="btn" onclick="openTab('/schedule')">📅 Schedule</button>
-            <button class="btn" onclick="openTab('/content')">📋 All Content</button>
+
+        <div class="grid">
+            <div class="card"><h2>🖥️ System Overview</h2><div id="overview-body"><span class="c-blue">Loading…</span></div></div>
+            <div class="card"><h2>📅 Upcoming Schedule</h2><div id="schedule-body"><span class="c-blue">Loading…</span></div></div>
+            <div class="card">
+                <h2>🎯 Content Strategy</h2>
+                <div id="strategy-display" style="font-size:.88em;line-height:1.9">
+                    <p><strong>Focus:</strong> <span id="cfg-focus">Animated Storytelling</span></p>
+                    <p><strong>Channel:</strong> <span id="cfg-channel">—</span></p>
+                    <p><strong>Audience:</strong> <span id="cfg-audience">—</span></p>
+                    <p><strong>Post time:</strong> <span id="cfg-time">2:00 PM</span></p>
+                    <p><strong>Frequency:</strong> Daily</p>
+                </div>
+            </div>
+            <div class="card"><h2>🤖 Agent Status</h2><div id="agents-body"><span class="c-blue">Loading…</span></div></div>
         </div>
     </div>
 
-    <!-- dashboard grid -->
-    <div class="grid">
+    <!-- ═══════════════════════ GENERATE TAB ═══════════════════════ -->
+    <div id="tab-generate" class="tab-panel">
+        <div class="grid">
+            <div class="card" style="grid-column: span 2">
+                <h2>✨ Generate New Content</h2>
+                <div class="form-group">
+                    <label>Topic (leave blank for AI to decide)</label>
+                    <div class="input-row">
+                        <input id="topic-input" type="text" placeholder="e.g. UGC OBRA Office Furniture, Productivity Tips, Animated Storytelling…" />
+                        <button class="btn" id="gen-btn" onclick="generateContent()">Generate</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Content Style</label>
+                    <select id="style-select">
+                        <option value="">Auto-select</option>
+                        <option value="tutorial">Tutorial</option>
+                        <option value="story">Story / Narrative</option>
+                        <option value="list">List / Top-N</option>
+                        <option value="explainer">Explainer</option>
+                    </select>
+                </div>
+                <div id="gen-status" style="margin-top:8px"></div>
+            </div>
 
-        <!-- system overview -->
-        <div class="card">
-            <h2>🖥️ System Overview</h2>
-            <div id="overview-body"><span class="c-blue">Loading…</span></div>
-        </div>
+            <div class="card">
+                <h2>📋 Recent Generated Content</h2>
+                <div id="gen-content-list"><span class="c-blue">Loading…</span></div>
+            </div>
 
-        <!-- upcoming schedule -->
-        <div class="card">
-            <h2>📅 Upcoming Schedule</h2>
-            <div id="schedule-body"><span class="c-blue">Loading…</span></div>
-        </div>
-
-        <!-- content strategy -->
-        <div class="card">
-            <h2>🎯 Content Strategy</h2>
-            <div style="font-size:.9em;line-height:1.9">
-                <p><strong>Focus:</strong> Animated Storytelling</p>
-                <p><strong>Audience:</strong> Creative individuals who love imagination</p>
-                <p><strong>Types:</strong> Story-driven, Explainers, Tutorials</p>
-                <p><strong>Frequency:</strong> Daily</p>
-                <p><strong>Optimal Time:</strong> 2:00 PM</p>
+            <div class="card">
+                <h2>📊 Generation Stats</h2>
+                <div id="gen-stats"><span class="c-blue">Loading…</span></div>
             </div>
         </div>
+    </div>
 
-        <!-- generate content -->
-        <div class="card" id="generate-card">
-            <h2>✨ Generate New Content</h2>
-            <div class="input-row">
-                <input id="topic-input" type="text" placeholder="Topic — leave blank for AI to pick" />
-                <button class="btn" id="gen-btn" onclick="generateContent()">Generate</button>
+    <!-- ═══════════════════════ CONTENT TAB ═══════════════════════ -->
+    <div id="tab-content" class="tab-panel">
+        <div class="card">
+            <h2>📋 All Content</h2>
+            <div id="all-content-list"><span class="c-blue">Loading…</span></div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════ SETTINGS TAB ═══════════════════════ -->
+    <div id="tab-settings" class="tab-panel">
+        <div class="grid-3">
+
+            <!-- API Configuration -->
+            <div class="card">
+                <h2>🔑 API Configuration</h2>
+                <div id="api-config-status"><span class="c-blue">Loading…</span></div>
+                <div class="info-box" style="margin-top:12px">
+                    To add or change API keys:<br>
+                    <strong>Vercel → Project → Settings → Environment Variables</strong><br>
+                    Then redeploy (or push a new commit).
+                </div>
             </div>
-            <div id="gen-status"></div>
-        </div>
 
-        <!-- agent status -->
-        <div class="card">
-            <h2>🤖 Agent Status</h2>
-            <div id="agents-body"><span class="c-blue">Loading…</span></div>
-        </div>
+            <!-- Channel Settings -->
+            <div class="card">
+                <h2>📺 Channel Settings</h2>
+                <div class="form-group">
+                    <label>Channel Name</label>
+                    <input type="text" id="set-channel-name" placeholder="Ethereal Dreamscript" />
+                </div>
+                <div class="form-group">
+                    <label>Channel Description</label>
+                    <textarea id="set-channel-desc" placeholder="A channel about animated storytelling…"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Target Audience</label>
+                    <input type="text" id="set-audience" placeholder="Creative individuals who love imagination" />
+                </div>
+                <div class="form-group">
+                    <label>Preferred Post Time</label>
+                    <input type="time" id="set-post-time" value="14:00" />
+                </div>
+                <div class="form-group">
+                    <label>Default Privacy</label>
+                    <select id="set-privacy">
+                        <option value="public">Public</option>
+                        <option value="unlisted">Unlisted</option>
+                        <option value="private">Private</option>
+                    </select>
+                </div>
+                <button class="btn btn-full" onclick="saveChannelSettings()">💾 Save Channel Settings</button>
+            </div>
 
-        <!-- recent content -->
-        <div class="card">
-            <h2>📋 Recent Content</h2>
-            <div id="content-body"><span class="c-blue">Loading…</span></div>
-        </div>
+            <!-- Automation Settings -->
+            <div class="card">
+                <h2>🤖 Automation Settings</h2>
+                <div class="toggle-row">
+                    <div class="toggle-label">Daily Content Generation<small>Auto-generate content every day</small></div>
+                    <label class="toggle"><input type="checkbox" id="tog-daily" checked onchange="saveSetting('daily_content_enabled', this.checked)"><span class="slider"></span></label>
+                </div>
+                <div class="toggle-row">
+                    <div class="toggle-label">Auto Publish<small>Publish to YouTube automatically</small></div>
+                    <label class="toggle"><input type="checkbox" id="tog-publish" checked onchange="saveSetting('auto_publish_enabled', this.checked)"><span class="slider"></span></label>
+                </div>
+                <div class="toggle-row">
+                    <div class="toggle-label">Analytics Collection<small>Track performance metrics</small></div>
+                    <label class="toggle"><input type="checkbox" id="tog-analytics" checked onchange="saveSetting('analytics_enabled', this.checked)"><span class="slider"></span></label>
+                </div>
+                <div class="toggle-row">
+                    <div class="toggle-label">SEO Optimization<small>Auto-optimize titles & descriptions</small></div>
+                    <label class="toggle"><input type="checkbox" id="tog-seo" checked onchange="saveSetting('optimization_enabled', this.checked)"><span class="slider"></span></label>
+                </div>
+                <hr class="divider">
+                <div class="form-group">
+                    <label>Max Posts Per Day</label>
+                    <select id="set-max-posts" onchange="saveSetting('max_daily_posts', this.value)">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Default Content Style</label>
+                    <select id="set-default-style" onchange="saveSetting('default_content_style', this.value)">
+                        <option value="auto">Auto-select</option>
+                        <option value="tutorial">Tutorial</option>
+                        <option value="story">Story / Narrative</option>
+                        <option value="list">List / Top-N</option>
+                        <option value="explainer">Explainer</option>
+                    </select>
+                </div>
+            </div>
 
+            <!-- Content Settings -->
+            <div class="card">
+                <h2>📝 Content Settings</h2>
+                <div class="form-group">
+                    <label>YouTube Region</label>
+                    <select id="set-region" onchange="saveSetting('youtube_region', this.value)">
+                        <option value="US">US — United States</option>
+                        <option value="PH">PH — Philippines</option>
+                        <option value="GB">GB — United Kingdom</option>
+                        <option value="AU">AU — Australia</option>
+                        <option value="CA">CA — Canada</option>
+                        <option value="IN">IN — India</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Video Category</label>
+                    <select id="set-category" onchange="saveSetting('video_category', this.value)">
+                        <option value="22">People & Blogs (22)</option>
+                        <option value="24">Entertainment (24)</option>
+                        <option value="27">Education (27)</option>
+                        <option value="28">Science & Technology (28)</option>
+                        <option value="26">Howto & Style (26)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Default Language</label>
+                    <select id="set-lang" onchange="saveSetting('default_language', this.value)">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="tl">Filipino / Tagalog</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Competitor Channels (comma-separated IDs)</label>
+                    <input type="text" id="set-competitors" placeholder="UCxxxxxx, UCyyyyyy" />
+                </div>
+                <button class="btn btn-full" onclick="saveContentSettings()">💾 Save Content Settings</button>
+            </div>
+
+            <!-- TTS / Voice -->
+            <div class="card">
+                <h2>🎙️ Voice & TTS Settings</h2>
+                <div class="form-group">
+                    <label>TTS Voice</label>
+                    <select id="set-voice" onchange="saveSetting('tts_voice', this.value)">
+                        <option value="en-US-JennyNeural">Jenny (US) — Female</option>
+                        <option value="en-US-GuyNeural">Guy (US) — Male</option>
+                        <option value="en-US-AriaNeural">Aria (US) — Female</option>
+                        <option value="en-US-DavisNeural">Davis (US) — Male</option>
+                        <option value="en-GB-SoniaNeural">Sonia (UK) — Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Speaking Rate</label>
+                    <select id="set-rate" onchange="saveSetting('tts_rate', this.value)">
+                        <option value="slow">Slow</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="fast">Fast</option>
+                    </select>
+                </div>
+                <div class="info-box">
+                    TTS requires <strong>Azure Speech Services</strong>.<br>
+                    Add <code>AZURE_SPEECH_KEY</code> and <code>AZURE_SPEECH_REGION</code> in Vercel env vars to enable.
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="card">
+                <h2>⚠️ Reset</h2>
+                <p style="font-size:.85em;color:#555;margin-bottom:12px">Clear all generated content and reset the in-memory store. This cannot be undone.</p>
+                <button class="btn-danger btn-full" onclick="resetStore()">🗑️ Clear All Content & Reset</button>
+                <hr class="divider">
+                <p style="font-size:.82em;color:#888">Version 1.0.0 · Vercel Serverless · Node.js 24</p>
+            </div>
+
+        </div>
     </div>
 </div>
 
-<!-- floating refresh -->
 <button class="fab" onclick="loadAll()" title="Refresh">🔄</button>
 
 <!-- strategy modal -->
@@ -270,36 +496,50 @@
 </div>
 
 <script>
-// ── state ────────────────────────────────────────────────────────────────────
-var health = null;
+// ── state ─────────────────────────────────────────────────────────────────────
+var currentHealth = null;
+var currentSettings = {};
 
-// ── toast ────────────────────────────────────────────────────────────────────
+// ── tabs ──────────────────────────────────────────────────────────────────────
+function switchTab(name) {
+    document.querySelectorAll('.tab-btn').forEach(function(b, i) {
+        b.classList.toggle('active', ['dashboard','generate','content','settings'][i] === name);
+    });
+    document.querySelectorAll('.tab-panel').forEach(function(p) {
+        p.classList.remove('active');
+    });
+    document.getElementById('tab-' + name).classList.add('active');
+    if (name === 'settings') loadSettings();
+    if (name === 'content')  loadContent();
+}
+
+// ── toast ─────────────────────────────────────────────────────────────────────
 function toast(msg, type) {
     var el = document.createElement('div');
     el.className = 'toast toast-' + (type || 'info');
     el.textContent = msg;
     document.body.appendChild(el);
-    setTimeout(function() { el.style.opacity = '0'; setTimeout(function() { el.remove(); }, 380); }, 3200);
+    setTimeout(function() { el.style.opacity='0'; setTimeout(function(){ el.remove(); }, 380); }, 3000);
 }
 
-// ── load all data ─────────────────────────────────────────────────────────────
+// ── load all (for dashboard + generate tabs) ──────────────────────────────────
 async function loadAll() {
     try {
         var results = await Promise.all([
-            fetch('/health').then(function(r) { return r.json(); }),
-            fetch('/schedule').then(function(r) { return r.json(); }).catch(function() { return []; }),
-            fetch('/analytics').then(function(r) { return r.json(); }).catch(function() { return {}; }),
-            fetch('/content').then(function(r) { return r.json(); }).catch(function() { return []; }),
+            fetch('/health').then(function(r){ return r.json(); }),
+            fetch('/schedule').then(function(r){ return r.json(); }).catch(function(){ return []; }),
+            fetch('/analytics').then(function(r){ return r.json(); }).catch(function(){ return {}; }),
+            fetch('/content').then(function(r){ return r.json(); }).catch(function(){ return []; }),
         ]);
-        health = results[0];
-        renderOverview(health, results[2]);
+        currentHealth = results[0];
+        renderOverview(results[0], results[2]);
         renderSchedule(results[1]);
-        renderAgents(health);
-        renderContent(results[3]);
-        renderStats(health, results[2], results[3], results[1]);
-    } catch (err) {
+        renderAgents(results[0]);
+        renderStats(results[0], results[2], results[3], results[1]);
+        renderGenContent(results[3]);
+        renderGenStats(results[3], results[2]);
+    } catch(err) {
         document.getElementById('sys-status').textContent = '🔴';
-        document.getElementById('overview-body').innerHTML = '<span class="c-red">❌ Cannot reach API: ' + err.message + '</span>';
     }
 }
 
@@ -307,59 +547,62 @@ async function loadAll() {
 function renderOverview(h, analytics) {
     document.getElementById('sys-status').textContent = h.status === 'healthy' ? '🟢' : '🔴';
     var svc = h.services || {};
-    var mode = h.mode || (svc.openai ? 'AI-powered' : 'Template-based');
-    var html = '<p style="margin-bottom:7px"><strong>Status:</strong> Running on Vercel</p>' +
-        '<p style="margin-bottom:7px"><strong>Mode:</strong> ' + mode + '</p>' +
-        '<p style="margin-bottom:12px"><strong>Agents:</strong> ' + (h.agents ? h.agents.length : 0) + '/7 active</p>' +
-        '<span class="badge ' + (svc.openai  ? 'badge-ok' : 'badge-warn') + '">' + (svc.openai  ? '✅ OpenAI'  : '⚠️ OpenAI not set')  + '</span>' +
-        '<span class="badge ' + (svc.youtube ? 'badge-ok' : 'badge-warn') + '">' + (svc.youtube ? '✅ YouTube' : '⚠️ YouTube not set') + '</span>' +
-        '<span class="badge badge-ok">✅ Database</span>' +
-        '<span class="badge badge-mode">📝 ' + mode + '</span>';
-    if (!svc.openai) {
-        html += '<p style="margin-top:10px;font-size:.8em;color:#856404">💡 Add <strong>OPENAI_API_KEY</strong> in Vercel → Project Settings → Environment Variables for AI-powered generation. Template mode works now without any key.</p>';
+    document.getElementById('overview-body').innerHTML =
+        '<p style="margin-bottom:7px"><strong>Status:</strong> Running on Vercel</p>' +
+        '<p style="margin-bottom:7px"><strong>Mode:</strong> ' + (h.mode || 'Template-based') + '</p>' +
+        '<p style="margin-bottom:10px"><strong>Agents:</strong> ' + (h.agents ? h.agents.length : 0) + '/7 active</p>' +
+        '<span class="badge ' + (svc.openai  ? 'badge-ok' : 'badge-warn') + '">' + (svc.openai  ? '✅ OpenAI'  : '⚠️ OpenAI') + '</span>' +
+        '<span class="badge ' + (svc.youtube ? 'badge-ok' : 'badge-warn') + '">' + (svc.youtube ? '✅ YouTube' : '⚠️ YouTube') + '</span>' +
+        '<span class="badge badge-ok">✅ Database</span>';
+
+    // update strategy panel from settings
+    if (currentSettings.channel_name) {
+        document.getElementById('cfg-channel').textContent  = currentSettings.channel_name;
+        document.getElementById('cfg-audience').textContent = currentSettings.target_audience || '—';
+        document.getElementById('cfg-time').textContent     = currentSettings.preferred_post_time || '2:00 PM';
     }
-    document.getElementById('overview-body').innerHTML = html;
 }
 
-// ── render schedule ───────────────────────────────────────────────────────────
 function renderSchedule(items) {
     var el = document.getElementById('schedule-body');
-    if (!items || items.length === 0) {
-        el.innerHTML = '<div class="sched-item"><strong>📅 Daily Generation</strong><br><small>Scheduled 6:00 AM daily</small></div>' +
-            '<div class="sched-item"><strong>📊 Analytics Collection</strong><br><small>Scheduled 9:00 AM daily</small></div>' +
-            '<div class="sched-item"><strong>🔧 Optimization</strong><br><small>Scheduled 10:00 PM daily</small></div>';
+    if (!items || !items.length) {
+        el.innerHTML = '<div class="sched-item"><strong>📅 Daily Generation</strong><br><small>6:00 AM daily</small></div>' +
+            '<div class="sched-item"><strong>📊 Analytics</strong><br><small>9:00 AM daily</small></div>' +
+            '<div class="sched-item"><strong>🔧 Optimization</strong><br><small>10:00 PM daily</small></div>';
         return;
     }
-    el.innerHTML = items.slice(0, 5).map(function(i) {
+    el.innerHTML = items.slice(0,5).map(function(i){
         return '<div class="sched-item"><strong>' + i.title + '</strong><br><small>📅 ' + new Date(i.publishTime).toLocaleString() + '</small></div>';
     }).join('');
 }
 
-// ── render agents ─────────────────────────────────────────────────────────────
 var agentLabels = {
-    strategy: '🎯 Content Strategy', scriptWriter: '✍️ Script Writer',
-    thumbnailDesigner: '🎨 Thumbnail Designer', seoOptimizer: '🔍 SEO Optimizer',
-    production: '🎬 Production', publishing: '📤 Publishing', analytics: '📊 Analytics'
+    strategy:'🎯 Content Strategy', scriptWriter:'✍️ Script Writer',
+    thumbnailDesigner:'🎨 Thumbnail Designer', seoOptimizer:'🔍 SEO Optimizer',
+    production:'🎬 Production', publishing:'📤 Publishing', analytics:'📊 Analytics'
 };
 function renderAgents(h) {
     var agents = h.agents || Object.keys(agentLabels);
-    document.getElementById('agents-body').innerHTML = agents.map(function(a) {
+    document.getElementById('agents-body').innerHTML = agents.map(function(a){
         return '<div class="agent-row">✅ ' + (agentLabels[a] || a) + ' Agent</div>';
     }).join('');
 }
 
-// ── render content list ───────────────────────────────────────────────────────
-function renderContent(items) {
-    var el = document.getElementById('content-body');
-    if (!items || items.length === 0) {
-        el.innerHTML = '<div class="log-line c-blue">ℹ️ No content yet</div>' +
-            '<div class="log-line c-blue">ℹ️ Hit "Generate Content" to create your first video</div>' +
-            '<div class="log-line c-green">✅ System ready</div>';
+function renderStats(h, analytics, content, schedule) {
+    document.getElementById('stat-generated').textContent = content ? content.length : 0;
+    document.getElementById('stat-published').textContent = analytics.totalVideos !== undefined ? analytics.totalVideos : 0;
+    var next = (schedule && schedule.length) ? new Date(schedule[0].publishTime).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}) : '6:00 AM';
+    document.getElementById('stat-next').textContent = next;
+}
+
+function renderGenContent(items) {
+    var el = document.getElementById('gen-content-list');
+    if (!items || !items.length) {
+        el.innerHTML = '<div class="log-line c-blue">ℹ️ No content yet — generate your first video above</div>';
         return;
     }
-    el.innerHTML = items.slice(0, 6).map(function(item) {
-        return '<div class="list-item">' +
-            '<span class="list-item-title" title="' + item.title + '">' + item.title + '</span>' +
+    el.innerHTML = items.slice(0,5).map(function(item){
+        return '<div class="list-item"><span class="list-item-title">' + item.title + '</span>' +
             '<div class="list-item-actions">' +
             '<span class="pill pill-' + item.status + '">' + item.status + '</span>' +
             ' <button class="btn-outline" onclick="showStrategy(\'' + item.id + '\')">View</button>' +
@@ -368,46 +611,175 @@ function renderContent(items) {
     }).join('');
 }
 
-// ── render stats bar ──────────────────────────────────────────────────────────
-function renderStats(h, analytics, content, schedule) {
-    document.getElementById('stat-generated').textContent = content ? content.length : 0;
-    document.getElementById('stat-published').textContent = analytics.totalVideos !== undefined ? analytics.totalVideos : 0;
-    var next = (schedule && schedule.length > 0) ? new Date(schedule[0].publishTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '6:00 AM';
-    document.getElementById('stat-next').textContent = next;
+function renderGenStats(content, analytics) {
+    var total = content ? content.length : 0;
+    var pub = analytics.totalVideos || 0;
+    var draft = content ? content.filter(function(i){ return i.status === 'draft'; }).length : 0;
+    var sched = content ? content.filter(function(i){ return i.status === 'scheduled'; }).length : 0;
+    document.getElementById('gen-stats').innerHTML =
+        '<div class="agent-row">📊 Total Generated: <strong>' + total + '</strong></div>' +
+        '<div class="agent-row">✅ Published: <strong>' + pub + '</strong></div>' +
+        '<div class="agent-row">📅 Scheduled: <strong>' + sched + '</strong></div>' +
+        '<div class="agent-row">📝 Drafts: <strong>' + draft + '</strong></div>' +
+        '<div class="agent-row">🤖 Mode: <strong>' + (currentHealth && currentHealth.mode ? currentHealth.mode : 'Template-based') + '</strong></div>';
 }
 
-// ── generate content ──────────────────────────────────────────────────────────
+// ── load content tab ──────────────────────────────────────────────────────────
+async function loadContent() {
+    try {
+        var items = await fetch('/content').then(function(r){ return r.json(); });
+        var el = document.getElementById('all-content-list');
+        if (!items || !items.length) {
+            el.innerHTML = '<div class="log-line c-blue">ℹ️ No content yet. Go to the Generate tab to create some.</div>';
+            return;
+        }
+        el.innerHTML = items.map(function(item){
+            return '<div class="list-item">' +
+                '<span class="list-item-title" title="' + item.title + '">' + item.title + '</span>' +
+                '<div class="list-item-actions">' +
+                '<span class="pill pill-' + item.status + '">' + item.status + '</span>' +
+                ' <button class="btn-outline" onclick="showStrategy(\'' + item.id + '\')">View</button>' +
+                (item.status !== 'published' ? ' <button class="btn-green" onclick="publishItem(\'' + item.id + '\')">Publish</button>' : '') +
+                '</div></div>';
+        }).join('');
+    } catch(err) { toast('Could not load content', 'error'); }
+}
+
+// ── settings ──────────────────────────────────────────────────────────────────
+async function loadSettings() {
+    try {
+        var [health, settings] = await Promise.all([
+            fetch('/health').then(function(r){ return r.json(); }),
+            fetch('/settings').then(function(r){ return r.json(); }),
+        ]);
+        currentSettings = settings;
+        renderAPIConfig(health.services || {});
+        populateSettingsForms(settings);
+    } catch(err) { toast('Could not load settings', 'error'); }
+}
+
+function renderAPIConfig(svc) {
+    var html = '';
+
+    html += '<div class="api-status-card ' + (svc.openai ? 'ok' : 'warn') + '">' +
+        '<h4>' + (svc.openai ? '✅' : '⚠️') + ' OpenAI API</h4>' +
+        '<p>' + (svc.openai
+            ? 'Connected. AI-powered content generation active.'
+            : 'Not configured. Add <strong>OPENAI_API_KEY</strong> in Vercel env vars.<br>Template mode is active in the meantime.') +
+        '</p></div>';
+
+    html += '<div class="api-status-card ' + (svc.youtube ? 'ok' : 'warn') + '">' +
+        '<h4>' + (svc.youtube ? '✅' : '⚠️') + ' YouTube API</h4>' +
+        '<p>' + (svc.youtube
+            ? 'Connected. Auto-publishing to YouTube is enabled.'
+            : 'Not configured. Add <strong>YOUTUBE_CLIENT_ID</strong> and <strong>YOUTUBE_CLIENT_SECRET</strong> in Vercel env vars to enable auto-publishing.') +
+        '</p></div>';
+
+    html += '<div class="api-status-card ok">' +
+        '<h4>✅ Database</h4>' +
+        '<p>In-memory store active. Content persists for the duration of each serverless instance.</p>' +
+        '</div>';
+
+    document.getElementById('api-config-status').innerHTML = html;
+}
+
+function populateSettingsForms(s) {
+    setVal('set-channel-name', s.channel_name || '');
+    setVal('set-channel-desc', s.channel_description || '');
+    setVal('set-audience',     s.target_audience || '');
+    setVal('set-post-time',    s.preferred_post_time || '14:00');
+    setVal('set-privacy',      s.default_privacy || 'public');
+    setVal('set-max-posts',    s.max_daily_posts || '1');
+    setVal('set-default-style',s.default_content_style || 'auto');
+    setVal('set-region',       s.youtube_region || 'US');
+    setVal('set-category',     s.video_category || '22');
+    setVal('set-lang',         s.default_language || 'en');
+    setVal('set-competitors',  s.competitor_channels || '');
+    setVal('set-voice',        s.tts_voice || 'en-US-JennyNeural');
+    setVal('set-rate',         s.tts_rate || 'normal');
+
+    setCheck('tog-daily',    s.daily_content_enabled !== 'false');
+    setCheck('tog-publish',  s.auto_publish_enabled  !== 'false');
+    setCheck('tog-analytics',s.analytics_enabled     !== 'false');
+    setCheck('tog-seo',      s.optimization_enabled  !== 'false');
+}
+
+function setVal(id, val) { var el = document.getElementById(id); if (el) el.value = val; }
+function setCheck(id, v) { var el = document.getElementById(id); if (el) el.checked = !!v; }
+
+async function saveSetting(key, value) {
+    var body = {}; body[key] = String(value);
+    await fetch('/settings', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    currentSettings[key] = String(value);
+    toast('Setting saved', 'success');
+}
+
+async function saveChannelSettings() {
+    var data = {
+        channel_name:         document.getElementById('set-channel-name').value,
+        channel_description:  document.getElementById('set-channel-desc').value,
+        target_audience:      document.getElementById('set-audience').value,
+        preferred_post_time:  document.getElementById('set-post-time').value,
+        default_privacy:      document.getElementById('set-privacy').value,
+    };
+    await fetch('/settings', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) });
+    Object.assign(currentSettings, data);
+    toast('Channel settings saved!', 'success');
+    // update dashboard display
+    document.getElementById('cfg-channel').textContent  = data.channel_name  || '—';
+    document.getElementById('cfg-audience').textContent = data.target_audience || '—';
+    document.getElementById('cfg-time').textContent     = data.preferred_post_time || '2:00 PM';
+}
+
+async function saveContentSettings() {
+    var data = {
+        youtube_region:      document.getElementById('set-region').value,
+        video_category:      document.getElementById('set-category').value,
+        default_language:    document.getElementById('set-lang').value,
+        competitor_channels: document.getElementById('set-competitors').value,
+    };
+    await fetch('/settings', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) });
+    Object.assign(currentSettings, data);
+    toast('Content settings saved!', 'success');
+}
+
+async function resetStore() {
+    if (!confirm('Clear ALL generated content and reset the store? This cannot be undone.')) return;
+    await fetch('/reset', { method: 'POST' });
+    toast('Store reset', 'info');
+    loadAll();
+}
+
+// ── generate ──────────────────────────────────────────────────────────────────
 async function generateContent() {
-    var topic = document.getElementById('topic-input').value.trim();
-    var btn   = document.getElementById('gen-btn');
-    var statusEl = document.getElementById('gen-status');
+    var topic  = document.getElementById('topic-input').value.trim();
+    var style  = document.getElementById('style-select').value;
+    var btn    = document.getElementById('gen-btn');
+    var status = document.getElementById('gen-status');
 
     btn.disabled = true;
     btn.innerHTML = '<span class="spinning">⏳</span>';
-    statusEl.innerHTML = '<span class="c-blue" style="font-size:.85em">Generating strategy…</span>';
+    status.innerHTML = '<span class="c-blue" style="font-size:.85em">Generating strategy…</span>';
 
     try {
         var res  = await fetch('/generate', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ topic: topic || null, style: 'story' })
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ topic: topic || null, style: style || null }),
         });
         var data = await res.json();
-
         if (data.success) {
             toast('✅ Created: ' + data.result.title, 'success');
-            statusEl.innerHTML = '<div class="log-line c-green">✅ <strong>' + data.result.title + '</strong></div>' +
-                '<div class="log-line c-blue">📅 Scheduled: ' + new Date(data.result.scheduledFor).toLocaleString() + '</div>';
+            status.innerHTML = '<div class="log-line c-green">✅ <strong>' + data.result.title + '</strong></div>' +
+                '<div class="log-line c-blue">📅 ' + new Date(data.result.scheduledFor).toLocaleString() + '</div>';
             document.getElementById('topic-input').value = '';
             loadAll();
-            // auto-open strategy modal
-            setTimeout(function() { showStrategy(data.result.contentId); }, 400);
+            setTimeout(function() { showStrategy(data.result.contentId); }, 350);
         } else {
-            statusEl.innerHTML = '<div class="log-line c-red">❌ ' + data.error + '</div>';
-            toast('Generation failed', 'error');
+            status.innerHTML = '<div class="log-line c-red">❌ ' + data.error + '</div>';
         }
-    } catch (err) {
-        statusEl.innerHTML = '<div class="log-line c-red">❌ ' + err.message + '</div>';
+    } catch(err) {
+        status.innerHTML = '<div class="log-line c-red">❌ ' + err.message + '</div>';
     } finally {
         btn.disabled = false;
         btn.innerHTML = 'Generate';
@@ -417,85 +789,53 @@ async function generateContent() {
 // ── strategy modal ────────────────────────────────────────────────────────────
 async function showStrategy(id) {
     try {
-        var res  = await fetch('/content/' + id);
-        var item = await res.json();
-        var s    = item.strategy || {};
-        renderModal(item, s);
+        var item = await fetch('/content/' + id).then(function(r){ return r.json(); });
+        var s = item.strategy || {};
+        var score = s.seoScore || 80;
+        var html =
+            '<h2>🎬 ' + item.title + '</h2>' +
+            '<div style="margin-bottom:12px">' +
+            '<span class="badge badge-mode">' + (s.contentType || item.style || 'content') + '</span>' +
+            '<span class="badge badge-ok">SEO ' + score + '/100</span>' +
+            '<span class="badge badge-warn">' + (s.estimatedDuration || '~10 min') + '</span>' +
+            '<span class="badge ' + (s.generatedBy === 'openai' ? 'badge-ok' : 'badge-mode') + '">' + (s.generatedBy === 'openai' ? '🤖 AI' : '📝 Template') + '</span>' +
+            '</div>' +
+            sec('🪝 Hook', '<p>' + (s.hook || '—') + '</p>') +
+            sec('👥 Target Audience', '<p>' + (s.targetAudience || '—') + '</p>') +
+            sec('📌 Main Points', '<ul>' + (s.mainPoints || []).map(function(p){ return '<li>' + p + '</li>'; }).join('') + '</ul>') +
+            sec('📣 Call to Action', '<p>' + (s.callToAction || '—') + '</p>') +
+            sec('🔑 SEO Keywords', '<div class="tag-cloud">' + (s.keywords || []).map(function(k){ return '<span class="tag">' + k + '</span>'; }).join('') + '</div>') +
+            sec('🏷️ Tags & Hashtags',
+                '<div class="tag-cloud">' + (s.tags || []).map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('') + '</div>' +
+                '<div class="tag-cloud" style="margin-top:5px">' + (s.hashtags || []).map(function(h){ return '<span class="hashtag">' + h + '</span>'; }).join('') + '</div>') +
+            sec('🎨 Thumbnail Concept', '<p>' + (s.thumbnailConcept || '—') + '</p>') +
+            (s.fullScript ? sec('📜 Script', '<button class="btn-outline" style="float:right;margin-top:-2px" onclick="copyScript()">Copy</button><div class="script-box" id="script-text">' + esc(s.fullScript) + '</div>') : '') +
+            '<hr class="divider">' +
+            '<div class="btn-row" style="justify-content:flex-start">' +
+            (item.status !== 'published' ? '<button class="btn btn-sm" onclick="publishItem(\'' + item.id + '\');closeModalDirect()">📤 Publish</button> ' : '') +
+            '<button class="btn-outline" onclick="copyDesc(\'' + escAttr(s.description || '') + '\')">📋 Copy Description</button>' +
+            '</div>';
+        document.getElementById('modal-content').innerHTML = html;
         document.getElementById('modal-overlay').classList.add('open');
-    } catch (err) { toast('Could not load content', 'error'); }
+    } catch(err) { toast('Could not load content', 'error'); }
 }
 
-function renderModal(item, s) {
-    var score = s.seoScore || 80;
-    var html =
-        '<h2>🎬 ' + item.title + '</h2>' +
-        '<div style="margin-bottom:14px">' +
-        '<span class="badge badge-mode">' + (s.contentType || item.style) + '</span>' +
-        '<span class="badge badge-ok">SEO ' + score + '/100</span>' +
-        '<span class="badge badge-warn">' + (s.estimatedDuration || '~10 min') + '</span>' +
-        '<span class="badge ' + (s.generatedBy === 'openai' ? 'badge-ok' : 'badge-mode') + '">' + (s.generatedBy === 'openai' ? '🤖 AI' : '📝 Template') + '</span>' +
-        '</div>' +
-
-        section('🪝 Hook', '<p>' + (s.hook || '—') + '</p>') +
-        section('👥 Target Audience', '<p>' + (s.targetAudience || '—') + '</p>') +
-        section('📌 Main Points', '<ul>' + (s.mainPoints || []).map(function(p) { return '<li>' + p + '</li>'; }).join('') + '</ul>') +
-        section('📣 Call to Action', '<p>' + (s.callToAction || '—') + '</p>') +
-        section('🔑 SEO Keywords', '<div class="tag-cloud">' + (s.keywords || []).map(function(k) { return '<span class="tag">' + k + '</span>'; }).join('') + '</div>') +
-        section('🏷️ Tags & Hashtags',
-            '<div class="tag-cloud">' + (s.tags || []).map(function(t) { return '<span class="tag">' + t + '</span>'; }).join('') + '</div>' +
-            '<div class="tag-cloud" style="margin-top:5px">' + (s.hashtags || []).map(function(h) { return '<span class="hashtag">' + h + '</span>'; }).join('') + '</div>') +
-        section('🎨 Thumbnail Concept', '<p>' + (s.thumbnailConcept || '—') + '</p>') +
-        (s.fullScript ? section('📜 Full Script', '<button class="btn-outline copy-btn btn-sm" onclick="copyScript()">Copy</button><div class="script-box" id="script-text">' + escHtml(s.fullScript) + '</div>') : '') +
-        '<hr class="divider">' +
-        '<div class="btn-row" style="justify-content:flex-start">' +
-        (item.status !== 'published' ? '<button class="btn btn-sm" onclick="publishItem(\'' + item.id + '\');closeModalDirect()">📤 Publish</button>' : '') +
-        '<button class="btn-outline" onclick="copyDescription(\'' + escAttr(s.description || '') + '\')">📋 Copy Description</button>' +
-        '</div>';
-
-    document.getElementById('modal-content').innerHTML = html;
-}
-
-function section(title, body) {
-    return '<div class="strategy-section"><h3>' + title + '</h3>' + body + '</div>';
-}
-function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function escAttr(s) { return s.replace(/'/g, '&#39;'); }
-
-function closeModal(e) {
-    if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
-}
-function closeModalDirect() {
-    document.getElementById('modal-overlay').classList.remove('open');
-}
-
-function copyScript() {
-    var txt = document.getElementById('script-text').textContent;
-    navigator.clipboard.writeText(txt).then(function() { toast('Script copied!', 'success'); });
-}
-function copyDescription(desc) {
-    navigator.clipboard.writeText(desc).then(function() { toast('Description copied!', 'success'); });
-}
+function sec(t, b) { return '<div class="strategy-section"><h3>' + t + '</h3>' + b + '</div>'; }
+function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escAttr(s) { return s.replace(/'/g,'&#39;'); }
+function closeModal(e)   { if (e.target === document.getElementById('modal-overlay')) closeModalDirect(); }
+function closeModalDirect() { document.getElementById('modal-overlay').classList.remove('open'); }
+function copyScript() { navigator.clipboard.writeText(document.getElementById('script-text').textContent).then(function(){ toast('Copied!','success'); }); }
+function copyDesc(d)   { navigator.clipboard.writeText(d).then(function(){ toast('Description copied!','success'); }); }
 
 // ── publish ───────────────────────────────────────────────────────────────────
 async function publishItem(id) {
     try {
-        var res  = await fetch('/publish/' + id, { method: 'POST' });
-        var data = await res.json();
-        if (data.success) {
-            toast('✅ Published: ' + data.result.title, 'success');
-            loadAll();
-        } else {
-            toast('YouTube credentials not configured yet', 'error');
-        }
-    } catch (err) { toast(err.message, 'error'); }
+        var data = await fetch('/publish/' + id, { method: 'POST' }).then(function(r){ return r.json(); });
+        if (data.success) { toast('✅ Published!', 'success'); loadAll(); }
+        else               { toast('YouTube not configured yet — content marked as published locally', 'info'); loadAll(); }
+    } catch(err) { toast(err.message, 'error'); }
 }
-
-// ── helpers ───────────────────────────────────────────────────────────────────
-function scrollToGenerate() {
-    document.getElementById('generate-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    document.getElementById('topic-input').focus();
-}
-function openTab(url) { window.open(url, '_blank'); }
 
 // ── boot ──────────────────────────────────────────────────────────────────────
 setInterval(loadAll, 30000);
