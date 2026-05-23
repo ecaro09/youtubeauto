@@ -10,426 +10,496 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
             min-height: 100vh;
+            color: #333;
         }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 30px;
-            padding-top: 20px;
-        }
-        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
-        .header p { font-size: 1.1em; opacity: 0.9; }
+        .header { text-align: center; color: white; margin-bottom: 28px; padding-top: 16px; }
+        .header h1 { font-size: 2.4em; margin-bottom: 8px; }
+        .header p  { font-size: 1.05em; opacity: 0.9; }
 
+        /* ── status bar ── */
         .status-bar {
-            background: rgba(255,255,255,0.95);
-            padding: 24px;
+            background: rgba(255,255,255,0.96);
+            padding: 22px 24px;
             border-radius: 16px;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.12);
         }
-
         .status-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
         }
-
-        .status-card {
+        .stat-card {
             text-align: center;
-            padding: 16px;
+            padding: 14px 10px;
             background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
             border-radius: 12px;
             color: white;
         }
-        .status-card h3 { font-size: 2em; margin-bottom: 4px; }
-        .status-card p { opacity: 0.9; font-size: 0.9em; }
+        .stat-card h3 { font-size: 1.9em; margin-bottom: 3px; }
+        .stat-card p  { opacity: 0.92; font-size: 0.85em; }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; }
 
-        .btn-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+        /* ── grid ── */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px; }
 
-        .btn {
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 22px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.95em;
-            transition: transform 0.2s, opacity 0.2s;
-        }
-        .btn:hover { transform: translateY(-2px); opacity: 0.92; }
-        .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 20px;
-        }
-
-        .dashboard-card {
-            background: rgba(255,255,255,0.95);
-            padding: 24px;
+        .card {
+            background: rgba(255,255,255,0.96);
+            padding: 22px;
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         }
+        .card h2 { color: #667eea; margin-bottom: 14px; font-size: 1.05em; display: flex; align-items: center; gap: 7px; }
 
-        .dashboard-card h2 {
+        /* ── buttons ── */
+        .btn {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 9px 20px; border: none; border-radius: 8px;
+            cursor: pointer; font-size: 0.93em; transition: transform .15s, opacity .15s;
+        }
+        .btn:hover   { transform: translateY(-2px); opacity: .9; }
+        .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+        .btn-sm { padding: 5px 12px; font-size: 0.8em; border-radius: 6px; }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #667eea;
             color: #667eea;
-            margin-bottom: 16px;
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 5px 12px; font-size: 0.8em; border-radius: 6px;
+            cursor: pointer; transition: .15s;
+        }
+        .btn-outline:hover { background: #667eea; color: white; }
+        .btn-green {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white; padding: 5px 12px; font-size: 0.8em; border-radius: 6px;
+            border: none; cursor: pointer;
         }
 
-        .loading { color: #999; font-style: italic; font-size: 0.9em; }
-
-        .schedule-item {
-            background: #f8f9ff;
-            padding: 10px 14px;
-            margin: 8px 0;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            font-size: 0.9em;
+        /* ── form ── */
+        .input-row { display: flex; gap: 8px; margin-bottom: 10px; }
+        .input-row input {
+            flex: 1; padding: 9px 12px; border: 1.5px solid #e0e0e0;
+            border-radius: 8px; font-size: 0.9em;
         }
+        .input-row input:focus { outline: none; border-color: #667eea; }
 
-        .log-entry {
-            font-family: 'Courier New', monospace;
-            font-size: 0.85em;
-            padding: 5px 8px;
-            margin: 3px 0;
-            background: #f5f5f5;
-            border-radius: 4px;
-        }
-
-        .success { color: #28a745; }
-        .warning { color: #e6a817; }
-        .error   { color: #dc3545; }
-        .info    { color: #0f7dba; }
-
-        .service-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.82em;
-            font-weight: 600;
-            margin: 3px 2px;
-        }
-        .badge-ok   { background: #d4edda; color: #155724; }
-        .badge-warn { background: #fff3cd; color: #856404; }
-
-        .generate-form { margin-top: 4px; }
-        .generate-form input {
-            width: 100%;
-            padding: 9px 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            font-size: 0.9em;
-        }
-        .generate-form input:focus { outline: 2px solid #667eea; border-color: transparent; }
-
-        .content-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 14px;
-            margin: 6px 0;
-            background: #f8f9ff;
-            border-radius: 8px;
-            font-size: 0.88em;
-            border-left: 4px solid #764ba2;
-        }
-
-        .pill {
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-size: 0.78em;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        .pill-draft     { background: #e2e3e5; color: #495057; }
+        /* ── pills / badges ── */
+        .pill { padding: 2px 9px; border-radius: 12px; font-size: 0.75em; font-weight: 600; white-space: nowrap; }
+        .pill-draft     { background: #e9ecef; color: #495057; }
         .pill-scheduled { background: #cce5ff; color: #004085; }
         .pill-published { background: #d4edda; color: #155724; }
 
-        .refresh-btn {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            font-size: 1.4em;
-            cursor: pointer;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-            transition: transform 0.3s;
-        }
-        .refresh-btn:hover { transform: scale(1.1) rotate(20deg); }
+        .badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 20px; font-size: 0.78em; font-weight: 600; margin: 2px; }
+        .badge-ok   { background: #d4edda; color: #155724; }
+        .badge-warn { background: #fff3cd; color: #856404; }
+        .badge-mode { background: #e8eaf6; color: #3949ab; }
 
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 14px 20px;
-            border-radius: 10px;
-            color: white;
-            font-size: 0.9em;
-            font-weight: 500;
-            z-index: 999;
-            max-width: 340px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            transition: opacity 0.4s;
+        /* ── list items ── */
+        .list-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 9px 12px; margin: 6px 0;
+            background: #f8f9ff; border-radius: 8px;
+            border-left: 4px solid #667eea; font-size: 0.88em;
         }
-        .notification.success-bg { background: #28a745; }
-        .notification.error-bg   { background: #dc3545; }
-        .notification.info-bg    { background: #17a2b8; }
+        .list-item-title { flex: 1; margin-right: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .list-item-actions { display: flex; gap: 5px; flex-shrink: 0; }
+
+        .sched-item {
+            padding: 9px 12px; margin: 6px 0;
+            background: #f8f9ff; border-radius: 8px;
+            border-left: 4px solid #764ba2; font-size: 0.88em;
+        }
+
+        .log-line { font-family: monospace; font-size: 0.82em; padding: 4px 7px; margin: 2px 0; background: #f5f5f5; border-radius: 4px; }
+        .c-green { color: #28a745; } .c-blue { color: #0f7dba; } .c-orange { color: #e6a817; } .c-red { color: #dc3545; }
+
+        .agent-row { padding: 7px 10px; margin: 4px 0; background: #f8f9ff; border-radius: 8px; font-size: 0.88em; }
+
+        /* ── modal ── */
+        .modal-overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.55); z-index: 100;
+            align-items: flex-start; justify-content: center;
+            padding: 20px; overflow-y: auto;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: white; border-radius: 16px; padding: 28px;
+            width: 100%; max-width: 680px; margin: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal h2 { color: #667eea; margin-bottom: 18px; font-size: 1.2em; }
+        .modal-close {
+            position: absolute; top: 14px; right: 16px;
+            background: none; border: none; font-size: 1.4em; cursor: pointer; color: #888;
+        }
+        .modal-close:hover { color: #333; }
+
+        .strategy-section { margin-bottom: 16px; }
+        .strategy-section h3 { font-size: 0.88em; font-weight: 700; color: #764ba2; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .5px; }
+        .strategy-section p { font-size: 0.9em; line-height: 1.6; color: #444; }
+        .strategy-section ul { padding-left: 18px; font-size: 0.9em; line-height: 1.8; color: #444; }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 5px; }
+        .tag { background: #e8eaf6; color: #3949ab; padding: 3px 9px; border-radius: 12px; font-size: 0.78em; }
+        .hashtag { background: #e3f2fd; color: #1565c0; padding: 3px 9px; border-radius: 12px; font-size: 0.78em; }
+        .score-bar { height: 8px; background: #e0e0e0; border-radius: 4px; margin-top: 5px; }
+        .score-fill { height: 100%; border-radius: 4px; background: linear-gradient(to right, #667eea, #764ba2); }
+        .divider { border: none; border-top: 1px solid #eee; margin: 14px 0; }
+        .script-box {
+            background: #f8f9ff; border: 1px solid #e0e0e0; border-radius: 8px;
+            padding: 12px; font-family: monospace; font-size: 0.82em;
+            line-height: 1.7; white-space: pre-wrap; max-height: 220px; overflow-y: auto;
+            color: #333;
+        }
+        .copy-btn { float: right; margin-top: -4px; }
+
+        /* ── refresh FAB ── */
+        .fab {
+            position: fixed; bottom: 22px; right: 22px;
+            width: 52px; height: 52px; border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white; border: none; font-size: 1.35em; cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25); transition: transform .25s;
+        }
+        .fab:hover { transform: scale(1.1) rotate(20deg); }
+
+        /* ── toast ── */
+        .toast {
+            position: fixed; top: 18px; right: 18px; padding: 12px 18px;
+            border-radius: 10px; color: white; font-size: 0.88em; font-weight: 600;
+            z-index: 200; max-width: 320px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: opacity .35s;
+        }
+        .toast-success { background: #28a745; }
+        .toast-error   { background: #dc3545; }
+        .toast-info    { background: #17a2b8; }
 
         @keyframes spin { to { transform: rotate(360deg); } }
-        .spinning { animation: spin 0.8s linear infinite; display: inline-block; }
+        .spinning { animation: spin .7s linear infinite; display: inline-block; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎬 Ethereal Dreamscript</h1>
-            <p>YouTube Automation Dashboard — AI-powered content pipeline</p>
+<div class="container">
+    <div class="header">
+        <h1>🎬 Ethereal Dreamscript</h1>
+        <p>YouTube Automation Dashboard — AI-powered content pipeline</p>
+    </div>
+
+    <!-- stats -->
+    <div class="status-bar">
+        <div class="status-grid">
+            <div class="stat-card"><h3 id="sys-status">⏳</h3><p>System Status</p></div>
+            <div class="stat-card"><h3 id="stat-generated">—</h3><p>Content Generated</p></div>
+            <div class="stat-card"><h3 id="stat-published">—</h3><p>Videos Published</p></div>
+            <div class="stat-card"><h3 id="stat-next">—</h3><p>Next Scheduled</p></div>
         </div>
-
-        <div class="status-bar">
-            <div class="status-grid">
-                <div class="status-card">
-                    <h3 id="system-status">⏳</h3>
-                    <p>System Status</p>
-                </div>
-                <div class="status-card">
-                    <h3 id="content-count">—</h3>
-                    <p>Content Generated</p>
-                </div>
-                <div class="status-card">
-                    <h3 id="published-count">—</h3>
-                    <p>Videos Published</p>
-                </div>
-                <div class="status-card">
-                    <h3 id="next-generation">—</h3>
-                    <p>Next Generation</p>
-                </div>
-            </div>
-            <div class="btn-row">
-                <button class="btn" onclick="openGeneratePanel()">🎬 Generate Content</button>
-                <button class="btn" onclick="viewAnalytics()">📊 Analytics</button>
-                <button class="btn" onclick="viewSchedule()">📅 Schedule</button>
-                <button class="btn" onclick="viewContent()">📋 All Content</button>
-            </div>
-        </div>
-
-        <div class="dashboard-grid">
-            <div class="dashboard-card">
-                <h2>🖥️ System Overview</h2>
-                <div id="system-overview" class="loading">Loading…</div>
-            </div>
-
-            <div class="dashboard-card">
-                <h2>📅 Upcoming Schedule</h2>
-                <div id="upcoming-schedule" class="loading">Loading…</div>
-            </div>
-
-            <div class="dashboard-card">
-                <h2>🎯 Content Strategy</h2>
-                <div>
-                    <p><strong>Focus:</strong> Animated Storytelling</p>
-                    <p style="margin:6px 0"><strong>Audience:</strong> Creative individuals who love imagination</p>
-                    <p style="margin:6px 0"><strong>Types:</strong> Story-driven, Explainers, Tutorials</p>
-                    <p style="margin:6px 0"><strong>Frequency:</strong> Daily</p>
-                    <p style="margin:6px 0"><strong>Optimal Time:</strong> 2:00 PM</p>
-                </div>
-            </div>
-
-            <div class="dashboard-card">
-                <h2>✨ Generate New Content</h2>
-                <div class="generate-form">
-                    <input type="text" id="topic-input" placeholder="Topic (optional — leave blank for AI to decide)" />
-                    <div class="btn-row" style="justify-content:flex-start">
-                        <button class="btn" id="gen-btn" onclick="generateContent()">✨ Generate</button>
-                    </div>
-                    <div id="gen-result" style="margin-top:12px"></div>
-                </div>
-            </div>
-
-            <div class="dashboard-card">
-                <h2>🤖 Agent Status</h2>
-                <div id="agent-status" class="loading">Loading…</div>
-            </div>
-
-            <div class="dashboard-card">
-                <h2>📋 Recent Content</h2>
-                <div id="recent-content" class="loading">Loading…</div>
-            </div>
+        <div class="btn-row">
+            <button class="btn" onclick="scrollToGenerate()">🎬 Generate Content</button>
+            <button class="btn" onclick="openTab('/analytics')">📊 Analytics</button>
+            <button class="btn" onclick="openTab('/schedule')">📅 Schedule</button>
+            <button class="btn" onclick="openTab('/content')">📋 All Content</button>
         </div>
     </div>
 
-    <button class="refresh-btn" onclick="loadDashboard()" title="Refresh">🔄</button>
+    <!-- dashboard grid -->
+    <div class="grid">
 
-    <script>
-        function notify(msg, type) {
-            const el = document.createElement('div');
-            el.className = 'notification ' + type + '-bg';
-            el.textContent = msg;
-            document.body.appendChild(el);
-            setTimeout(() => { el.style.opacity = '0'; setTimeout(() => el.remove(), 400); }, 3500);
+        <!-- system overview -->
+        <div class="card">
+            <h2>🖥️ System Overview</h2>
+            <div id="overview-body"><span class="c-blue">Loading…</span></div>
+        </div>
+
+        <!-- upcoming schedule -->
+        <div class="card">
+            <h2>📅 Upcoming Schedule</h2>
+            <div id="schedule-body"><span class="c-blue">Loading…</span></div>
+        </div>
+
+        <!-- content strategy -->
+        <div class="card">
+            <h2>🎯 Content Strategy</h2>
+            <div style="font-size:.9em;line-height:1.9">
+                <p><strong>Focus:</strong> Animated Storytelling</p>
+                <p><strong>Audience:</strong> Creative individuals who love imagination</p>
+                <p><strong>Types:</strong> Story-driven, Explainers, Tutorials</p>
+                <p><strong>Frequency:</strong> Daily</p>
+                <p><strong>Optimal Time:</strong> 2:00 PM</p>
+            </div>
+        </div>
+
+        <!-- generate content -->
+        <div class="card" id="generate-card">
+            <h2>✨ Generate New Content</h2>
+            <div class="input-row">
+                <input id="topic-input" type="text" placeholder="Topic — leave blank for AI to pick" />
+                <button class="btn" id="gen-btn" onclick="generateContent()">Generate</button>
+            </div>
+            <div id="gen-status"></div>
+        </div>
+
+        <!-- agent status -->
+        <div class="card">
+            <h2>🤖 Agent Status</h2>
+            <div id="agents-body"><span class="c-blue">Loading…</span></div>
+        </div>
+
+        <!-- recent content -->
+        <div class="card">
+            <h2>📋 Recent Content</h2>
+            <div id="content-body"><span class="c-blue">Loading…</span></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- floating refresh -->
+<button class="fab" onclick="loadAll()" title="Refresh">🔄</button>
+
+<!-- strategy modal -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+    <div class="modal" id="modal-box">
+        <button class="modal-close" onclick="closeModalDirect()">✕</button>
+        <div id="modal-content"></div>
+    </div>
+</div>
+
+<script>
+// ── state ────────────────────────────────────────────────────────────────────
+var health = null;
+
+// ── toast ────────────────────────────────────────────────────────────────────
+function toast(msg, type) {
+    var el = document.createElement('div');
+    el.className = 'toast toast-' + (type || 'info');
+    el.textContent = msg;
+    document.body.appendChild(el);
+    setTimeout(function() { el.style.opacity = '0'; setTimeout(function() { el.remove(); }, 380); }, 3200);
+}
+
+// ── load all data ─────────────────────────────────────────────────────────────
+async function loadAll() {
+    try {
+        var results = await Promise.all([
+            fetch('/health').then(function(r) { return r.json(); }),
+            fetch('/schedule').then(function(r) { return r.json(); }).catch(function() { return []; }),
+            fetch('/analytics').then(function(r) { return r.json(); }).catch(function() { return {}; }),
+            fetch('/content').then(function(r) { return r.json(); }).catch(function() { return []; }),
+        ]);
+        health = results[0];
+        renderOverview(health, results[2]);
+        renderSchedule(results[1]);
+        renderAgents(health);
+        renderContent(results[3]);
+        renderStats(health, results[2], results[3], results[1]);
+    } catch (err) {
+        document.getElementById('sys-status').textContent = '🔴';
+        document.getElementById('overview-body').innerHTML = '<span class="c-red">❌ Cannot reach API: ' + err.message + '</span>';
+    }
+}
+
+// ── render overview ───────────────────────────────────────────────────────────
+function renderOverview(h, analytics) {
+    document.getElementById('sys-status').textContent = h.status === 'healthy' ? '🟢' : '🔴';
+    var svc = h.services || {};
+    var mode = h.mode || (svc.openai ? 'AI-powered' : 'Template-based');
+    var html = '<p style="margin-bottom:7px"><strong>Status:</strong> Running on Vercel</p>' +
+        '<p style="margin-bottom:7px"><strong>Mode:</strong> ' + mode + '</p>' +
+        '<p style="margin-bottom:12px"><strong>Agents:</strong> ' + (h.agents ? h.agents.length : 0) + '/7 active</p>' +
+        '<span class="badge ' + (svc.openai  ? 'badge-ok' : 'badge-warn') + '">' + (svc.openai  ? '✅ OpenAI'  : '⚠️ OpenAI not set')  + '</span>' +
+        '<span class="badge ' + (svc.youtube ? 'badge-ok' : 'badge-warn') + '">' + (svc.youtube ? '✅ YouTube' : '⚠️ YouTube not set') + '</span>' +
+        '<span class="badge badge-ok">✅ Database</span>' +
+        '<span class="badge badge-mode">📝 ' + mode + '</span>';
+    if (!svc.openai) {
+        html += '<p style="margin-top:10px;font-size:.8em;color:#856404">💡 Add <strong>OPENAI_API_KEY</strong> in Vercel → Project Settings → Environment Variables for AI-powered generation. Template mode works now without any key.</p>';
+    }
+    document.getElementById('overview-body').innerHTML = html;
+}
+
+// ── render schedule ───────────────────────────────────────────────────────────
+function renderSchedule(items) {
+    var el = document.getElementById('schedule-body');
+    if (!items || items.length === 0) {
+        el.innerHTML = '<div class="sched-item"><strong>📅 Daily Generation</strong><br><small>Scheduled 6:00 AM daily</small></div>' +
+            '<div class="sched-item"><strong>📊 Analytics Collection</strong><br><small>Scheduled 9:00 AM daily</small></div>' +
+            '<div class="sched-item"><strong>🔧 Optimization</strong><br><small>Scheduled 10:00 PM daily</small></div>';
+        return;
+    }
+    el.innerHTML = items.slice(0, 5).map(function(i) {
+        return '<div class="sched-item"><strong>' + i.title + '</strong><br><small>📅 ' + new Date(i.publishTime).toLocaleString() + '</small></div>';
+    }).join('');
+}
+
+// ── render agents ─────────────────────────────────────────────────────────────
+var agentLabels = {
+    strategy: '🎯 Content Strategy', scriptWriter: '✍️ Script Writer',
+    thumbnailDesigner: '🎨 Thumbnail Designer', seoOptimizer: '🔍 SEO Optimizer',
+    production: '🎬 Production', publishing: '📤 Publishing', analytics: '📊 Analytics'
+};
+function renderAgents(h) {
+    var agents = h.agents || Object.keys(agentLabels);
+    document.getElementById('agents-body').innerHTML = agents.map(function(a) {
+        return '<div class="agent-row">✅ ' + (agentLabels[a] || a) + ' Agent</div>';
+    }).join('');
+}
+
+// ── render content list ───────────────────────────────────────────────────────
+function renderContent(items) {
+    var el = document.getElementById('content-body');
+    if (!items || items.length === 0) {
+        el.innerHTML = '<div class="log-line c-blue">ℹ️ No content yet</div>' +
+            '<div class="log-line c-blue">ℹ️ Hit "Generate Content" to create your first video</div>' +
+            '<div class="log-line c-green">✅ System ready</div>';
+        return;
+    }
+    el.innerHTML = items.slice(0, 6).map(function(item) {
+        return '<div class="list-item">' +
+            '<span class="list-item-title" title="' + item.title + '">' + item.title + '</span>' +
+            '<div class="list-item-actions">' +
+            '<span class="pill pill-' + item.status + '">' + item.status + '</span>' +
+            ' <button class="btn-outline" onclick="showStrategy(\'' + item.id + '\')">View</button>' +
+            (item.status !== 'published' ? ' <button class="btn-green" onclick="publishItem(\'' + item.id + '\')">Publish</button>' : '') +
+            '</div></div>';
+    }).join('');
+}
+
+// ── render stats bar ──────────────────────────────────────────────────────────
+function renderStats(h, analytics, content, schedule) {
+    document.getElementById('stat-generated').textContent = content ? content.length : 0;
+    document.getElementById('stat-published').textContent = analytics.totalVideos !== undefined ? analytics.totalVideos : 0;
+    var next = (schedule && schedule.length > 0) ? new Date(schedule[0].publishTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '6:00 AM';
+    document.getElementById('stat-next').textContent = next;
+}
+
+// ── generate content ──────────────────────────────────────────────────────────
+async function generateContent() {
+    var topic = document.getElementById('topic-input').value.trim();
+    var btn   = document.getElementById('gen-btn');
+    var statusEl = document.getElementById('gen-status');
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinning">⏳</span>';
+    statusEl.innerHTML = '<span class="c-blue" style="font-size:.85em">Generating strategy…</span>';
+
+    try {
+        var res  = await fetch('/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ topic: topic || null, style: 'story' })
+        });
+        var data = await res.json();
+
+        if (data.success) {
+            toast('✅ Created: ' + data.result.title, 'success');
+            statusEl.innerHTML = '<div class="log-line c-green">✅ <strong>' + data.result.title + '</strong></div>' +
+                '<div class="log-line c-blue">📅 Scheduled: ' + new Date(data.result.scheduledFor).toLocaleString() + '</div>';
+            document.getElementById('topic-input').value = '';
+            loadAll();
+            // auto-open strategy modal
+            setTimeout(function() { showStrategy(data.result.contentId); }, 400);
+        } else {
+            statusEl.innerHTML = '<div class="log-line c-red">❌ ' + data.error + '</div>';
+            toast('Generation failed', 'error');
         }
+    } catch (err) {
+        statusEl.innerHTML = '<div class="log-line c-red">❌ ' + err.message + '</div>';
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = 'Generate';
+    }
+}
 
-        async function loadDashboard() {
-            try {
-                const [health, schedule, analytics, content] = await Promise.all([
-                    fetch('/health').then(r => r.json()),
-                    fetch('/schedule').then(r => r.json()).catch(() => []),
-                    fetch('/analytics').then(r => r.json()).catch(() => ({})),
-                    fetch('/content').then(r => r.json()).catch(() => []),
-                ]);
-                renderSystem(health, analytics);
-                renderSchedule(schedule);
-                renderAgents(health);
-                renderContent(content, analytics);
-            } catch (err) {
-                document.getElementById('system-status').textContent = '🔴';
-                document.getElementById('system-overview').innerHTML =
-                    '<div class="log-entry error">❌ Cannot reach API: ' + err.message + '</div>';
-            }
+// ── strategy modal ────────────────────────────────────────────────────────────
+async function showStrategy(id) {
+    try {
+        var res  = await fetch('/content/' + id);
+        var item = await res.json();
+        var s    = item.strategy || {};
+        renderModal(item, s);
+        document.getElementById('modal-overlay').classList.add('open');
+    } catch (err) { toast('Could not load content', 'error'); }
+}
+
+function renderModal(item, s) {
+    var score = s.seoScore || 80;
+    var html =
+        '<h2>🎬 ' + item.title + '</h2>' +
+        '<div style="margin-bottom:14px">' +
+        '<span class="badge badge-mode">' + (s.contentType || item.style) + '</span>' +
+        '<span class="badge badge-ok">SEO ' + score + '/100</span>' +
+        '<span class="badge badge-warn">' + (s.estimatedDuration || '~10 min') + '</span>' +
+        '<span class="badge ' + (s.generatedBy === 'openai' ? 'badge-ok' : 'badge-mode') + '">' + (s.generatedBy === 'openai' ? '🤖 AI' : '📝 Template') + '</span>' +
+        '</div>' +
+
+        section('🪝 Hook', '<p>' + (s.hook || '—') + '</p>') +
+        section('👥 Target Audience', '<p>' + (s.targetAudience || '—') + '</p>') +
+        section('📌 Main Points', '<ul>' + (s.mainPoints || []).map(function(p) { return '<li>' + p + '</li>'; }).join('') + '</ul>') +
+        section('📣 Call to Action', '<p>' + (s.callToAction || '—') + '</p>') +
+        section('🔑 SEO Keywords', '<div class="tag-cloud">' + (s.keywords || []).map(function(k) { return '<span class="tag">' + k + '</span>'; }).join('') + '</div>') +
+        section('🏷️ Tags & Hashtags',
+            '<div class="tag-cloud">' + (s.tags || []).map(function(t) { return '<span class="tag">' + t + '</span>'; }).join('') + '</div>' +
+            '<div class="tag-cloud" style="margin-top:5px">' + (s.hashtags || []).map(function(h) { return '<span class="hashtag">' + h + '</span>'; }).join('') + '</div>') +
+        section('🎨 Thumbnail Concept', '<p>' + (s.thumbnailConcept || '—') + '</p>') +
+        (s.fullScript ? section('📜 Full Script', '<button class="btn-outline copy-btn btn-sm" onclick="copyScript()">Copy</button><div class="script-box" id="script-text">' + escHtml(s.fullScript) + '</div>') : '') +
+        '<hr class="divider">' +
+        '<div class="btn-row" style="justify-content:flex-start">' +
+        (item.status !== 'published' ? '<button class="btn btn-sm" onclick="publishItem(\'' + item.id + '\');closeModalDirect()">📤 Publish</button>' : '') +
+        '<button class="btn-outline" onclick="copyDescription(\'' + escAttr(s.description || '') + '\')">📋 Copy Description</button>' +
+        '</div>';
+
+    document.getElementById('modal-content').innerHTML = html;
+}
+
+function section(title, body) {
+    return '<div class="strategy-section"><h3>' + title + '</h3>' + body + '</div>';
+}
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escAttr(s) { return s.replace(/'/g, '&#39;'); }
+
+function closeModal(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+}
+function closeModalDirect() {
+    document.getElementById('modal-overlay').classList.remove('open');
+}
+
+function copyScript() {
+    var txt = document.getElementById('script-text').textContent;
+    navigator.clipboard.writeText(txt).then(function() { toast('Script copied!', 'success'); });
+}
+function copyDescription(desc) {
+    navigator.clipboard.writeText(desc).then(function() { toast('Description copied!', 'success'); });
+}
+
+// ── publish ───────────────────────────────────────────────────────────────────
+async function publishItem(id) {
+    try {
+        var res  = await fetch('/publish/' + id, { method: 'POST' });
+        var data = await res.json();
+        if (data.success) {
+            toast('✅ Published: ' + data.result.title, 'success');
+            loadAll();
+        } else {
+            toast('YouTube credentials not configured yet', 'error');
         }
+    } catch (err) { toast(err.message, 'error'); }
+}
 
-        function renderSystem(health, analytics) {
-            document.getElementById('system-status').textContent =
-                health.status === 'healthy' ? '🟢' : '🔴';
-            document.getElementById('content-count').textContent =
-                analytics.contentItems ? analytics.contentItems.length : '0';
-            document.getElementById('published-count').textContent =
-                analytics.totalVideos !== undefined ? analytics.totalVideos : '0';
+// ── helpers ───────────────────────────────────────────────────────────────────
+function scrollToGenerate() {
+    document.getElementById('generate-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById('topic-input').focus();
+}
+function openTab(url) { window.open(url, '_blank'); }
 
-            const svc = health.services || {};
-            const badges = [
-                svc.openai
-                    ? '<span class="service-badge badge-ok">✅ OpenAI Ready</span>'
-                    : '<span class="service-badge badge-warn">⚠️ OpenAI not configured</span>',
-                svc.youtube
-                    ? '<span class="service-badge badge-ok">✅ YouTube Ready</span>'
-                    : '<span class="service-badge badge-warn">⚠️ YouTube not configured</span>',
-                '<span class="service-badge badge-ok">✅ Database Ready</span>',
-            ].join('');
-
-            document.getElementById('system-overview').innerHTML =
-                '<p style="margin-bottom:8px"><strong>Status:</strong> Running on Vercel</p>' +
-                '<p style="margin-bottom:8px"><strong>Agents:</strong> ' + (health.agents ? health.agents.length : 0) + '/7 active</p>' +
-                '<p style="margin-bottom:12px"><strong>Refreshed:</strong> ' + new Date().toLocaleTimeString() + '</p>' +
-                '<div>' + badges + '</div>' +
-                (!svc.openai
-                    ? '<p style="margin-top:10px;font-size:0.82em;color:#856404">💡 Add <strong>OPENAI_API_KEY</strong> in Vercel → Project Settings → Environment Variables to enable content generation.</p>'
-                    : '');
-        }
-
-        function renderSchedule(items) {
-            const el = document.getElementById('upcoming-schedule');
-            if (!items || items.length === 0) {
-                el.innerHTML =
-                    '<div class="schedule-item"><strong>📅 Daily Content Generation</strong><br><small>Scheduled 6:00 AM daily</small></div>' +
-                    '<div class="schedule-item"><strong>📊 Analytics Collection</strong><br><small>Scheduled 9:00 AM daily</small></div>' +
-                    '<div class="schedule-item"><strong>🔧 Optimization Tasks</strong><br><small>Scheduled 10:00 PM daily</small></div>';
-                document.getElementById('next-generation').textContent = '6:00 AM';
-                return;
-            }
-            el.innerHTML = items.slice(0, 5).map(function(item) {
-                return '<div class="schedule-item"><strong>' + item.title + '</strong><br><small>' +
-                    new Date(item.publishTime).toLocaleString() + '</small></div>';
-            }).join('');
-            if (items[0]) {
-                document.getElementById('next-generation').textContent =
-                    new Date(items[0].publishTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            }
-        }
-
-        function renderAgents(health) {
-            const agents = health.agents || ['strategy','scriptWriter','thumbnailDesigner','seoOptimizer','production','publishing','analytics'];
-            const labels = {
-                strategy: '🎯 Content Strategy', scriptWriter: '✍️ Script Writer',
-                thumbnailDesigner: '🎨 Thumbnail Designer', seoOptimizer: '🔍 SEO Optimizer',
-                production: '🎬 Production', publishing: '📤 Publishing', analytics: '📊 Analytics',
-            };
-            document.getElementById('agent-status').innerHTML = agents.map(function(a) {
-                return '<div class="schedule-item">✅ ' + (labels[a] || a) + ' Agent</div>';
-            }).join('');
-        }
-
-        function renderContent(items, analytics) {
-            const el = document.getElementById('recent-content');
-            if (!items || items.length === 0) {
-                el.innerHTML =
-                    '<div class="log-entry info">ℹ️ No content generated yet</div>' +
-                    '<div class="log-entry info">ℹ️ Use "Generate Content" to create your first video</div>' +
-                    '<div class="log-entry success">✅ System is ready</div>';
-                return;
-            }
-            el.innerHTML = items.slice(0, 5).map(function(item) {
-                return '<div class="content-item"><span>' + item.title + '</span>' +
-                    '<span class="pill pill-' + item.status + '">' + item.status + '</span></div>';
-            }).join('');
-        }
-
-        async function generateContent() {
-            var topic = document.getElementById('topic-input').value.trim();
-            var btn = document.getElementById('gen-btn');
-            var resultEl = document.getElementById('gen-result');
-
-            btn.disabled = true;
-            btn.innerHTML = '<span class="spinning">⏳</span> Generating…';
-            resultEl.innerHTML = '';
-
-            try {
-                var res = await fetch('/generate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ topic: topic || null, style: 'story' }),
-                });
-                var data = await res.json();
-
-                if (data.success) {
-                    notify('✅ Generated: ' + data.result.title, 'success');
-                    resultEl.innerHTML =
-                        '<div class="log-entry success">✅ Created: <strong>' + data.result.title + '</strong></div>' +
-                        '<div class="log-entry info">📅 Scheduled: ' + new Date(data.result.scheduledFor).toLocaleString() + '</div>';
-                    document.getElementById('topic-input').value = '';
-                    loadDashboard();
-                } else {
-                    resultEl.innerHTML = '<div class="log-entry error">❌ ' + data.error + '</div>';
-                    notify('Generation failed', 'error');
-                }
-            } catch (err) {
-                resultEl.innerHTML = '<div class="log-entry error">❌ ' + err.message + '</div>';
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = '✨ Generate';
-            }
-        }
-
-        function openGeneratePanel() {
-            document.getElementById('topic-input').focus();
-            document.getElementById('topic-input').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
-        function viewAnalytics() { window.open('/analytics', '_blank'); }
-        function viewSchedule()  { window.open('/schedule',  '_blank'); }
-        function viewContent()   { window.open('/content',   '_blank'); }
-
-        setInterval(loadDashboard, 30000);
-        loadDashboard();
-    </script>
+// ── boot ──────────────────────────────────────────────────────────────────────
+setInterval(loadAll, 30000);
+loadAll();
+</script>
 </body>
 </html>
