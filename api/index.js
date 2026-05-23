@@ -259,7 +259,13 @@ app.post('/generate', async (req, res) => {
 
     let strategy;
     if (process.env.OPENAI_API_KEY) {
-      strategy = await generateWithOpenAI(topic);
+      try {
+        strategy = await generateWithOpenAI(topic);
+      } catch (aiErr) {
+        // Fall back to template on quota exceeded, rate limit, or any OpenAI error
+        strategy = buildTemplateStrategy(topic);
+        strategy.generatedBy = 'template (OpenAI unavailable)';
+      }
     } else {
       strategy = buildTemplateStrategy(topic);
     }
@@ -318,6 +324,19 @@ app.get('/settings', (req, res) => res.json(store.settings));
 app.post('/settings', (req, res) => {
   Object.assign(store.settings, req.body);
   res.json({ success: true, settings: store.settings });
+});
+
+app.post('/reset', (req, res) => {
+  store.contentItems = [];
+  store.scheduleItems = [];
+  store.analyticsReports = [];
+  store.settings = {
+    daily_content_enabled: 'true',
+    auto_publish_enabled: 'true',
+    analytics_enabled: 'true',
+    max_daily_posts: '1',
+  };
+  res.json({ success: true, message: 'Store reset to defaults.' });
 });
 
 module.exports = app;
